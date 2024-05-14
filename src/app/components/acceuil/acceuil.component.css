@@ -1,0 +1,52 @@
+body{
+    background-image: url(../../../assets/bac-1.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 617px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    }
+img{
+    
+    width: 200px;
+    height:50px ;
+    border:1px solid blue;
+    
+}
+h1{
+    font-size: 4em;
+    position: absolute;
+    top: 150px;
+    left:20px ;
+    right:20px ;
+    bottom:20px ;
+    color: pink;
+    font-style: italic;
+  }
+h2{
+    font-size: 2em;
+    position: absolute;
+    top: 250px;
+    left:20px ;
+    right:20px ;
+    bottom:20px ;
+    color: yellow;
+    font-style: italic;
+    height: 100px;
+  }
+h3{
+    font-size: 1.5em;
+    position: absolute;
+    top: 355px;
+    left: 670px;
+    color: black;
+    font-style:normal;
+    width: 100px;
+}
+
+

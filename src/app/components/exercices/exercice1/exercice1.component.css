@@ -1,0 +1,246 @@
+body html{
+  min-height: 80vh;
+  overflow-y: auto;
+}
+
+.example-box {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 20px;
+  width: 100px;
+  height:50px;
+  text-align: center;
+  background-color: white;
+}
+.top-content{
+  position : relative;
+  
+}
+.table-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  height: 100%; /* Allow wrapper to fill available space */
+}
+
+table {
+  background: transparent;
+  flex: 1; /* Allow table to grow when content overflows */
+}
+
+.exercice{
+  width: 98.5vw;
+  min-height: 90vh;
+  top: 0;
+  left: 0;
+  background-image: url(../../../../assets/backIM.jpg);
+  background-size: cover; /* Changed from fill to cover */
+  background-repeat: no-repeat;
+  overflow: hidden; /* Add this line to hide overflow */
+}
+
+.containe{
+  min-height: 50vh;
+}
+
+.table-container {
+  background-image: url(../../../../assets/backgroundTable.jpg);
+  border: 1px solid black;
+   position: relative; /*Change position to relative */
+  max-height: 70vh; /* Use viewport height instead of a percentage */
+  overflow-y: auto; /* Add vertical scrollbar if content exceeds the maximum height */
+  transform: translateY(50% -20%); /* Center the table vertically */
+  width: 600px;
+  margin-left:30% ;
+}
+
+.cell-with-padding {
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+.td-with-padding {
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+/* Set a fixed height for the first row */
+.first-row {
+  min-height: 300px; /* Adjust height as needed */
+}
+
+/* Set a fixed width for each table cell */
+td.droppable {
+  width: 25%; /* Each column takes 25% of the table width */
+  min-width: 100px; /* Adjust minimum width as needed */
+  min-height: 50px; /* Adjusted to provide some space for dragged element */
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+.droppable {
+  min-height: 50px; /* Adjusted to provide some space for dragged element */
+   /* Adjust the padding as needed */
+}
+
+.draggable, 
+.droppable { 
+  
+}
+
+
+.btn{
+  width: 200px;
+  height: 50px;
+}
+
+.bs-calltoaction{
+  position: relative;
+  width:auto;
+  padding: 15px 25px;
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+  .bs-calltoaction > .row{
+      display:table;
+      width: calc(100% + 30px);
+  }
+   
+      .bs-calltoaction > .row > [class^="col-"],
+      .bs-calltoaction > .row > [class*=" col-"]{
+          float:none;
+          display:table-cell;
+          vertical-align:middle;
+      }
+
+          .cta-contents{
+              padding-top: 10px;
+              padding-bottom: 10px;
+          }
+
+              .cta-title{
+                  margin: 0 auto 15px;
+                  padding: 0;
+              }
+
+              .cta-desc{
+                  padding: 0;
+              }
+
+              .cta-desc p:last-child{
+                  margin-bottom: 0;
+              }
+
+          .cta-button{
+              padding-top: 10px;
+              padding-bottom: 10px;
+          }
+
+@media (max-width: 991px){
+  .bs-calltoaction > .row{
+      display:block;
+      width: auto;
+  }
+
+      .bs-calltoaction > .row > [class^="col-"],
+      .bs-calltoaction > .row > [class*=" col-"]{
+          float:none;
+          display:block;
+          vertical-align:middle;
+          position: relative;
+      }
+
+      .cta-contents{
+          text-align: center;
+      }
+}
+
+
+
+.bs-calltoaction.bs-calltoaction-default{
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.bs-calltoaction.bs-calltoaction-primary{
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.bs-calltoaction.bs-calltoaction-info{
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.bs-calltoaction.bs-calltoaction-success{
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.bs-calltoaction.bs-calltoaction-warning{
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.bs-calltoaction.bs-calltoaction-danger{
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.bs-calltoaction.bs-calltoaction-primary .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-info .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-success .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-warning .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-danger .cta-button .btn{
+  border-color:#fff;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Arimo:400,700|Roboto+Slab:400,700");
+.column {
+  width: 8.4rem;
+  margin: 0 0.6rem;
+  background: #a8a8a8;
+  border: #000013 0.2rem solid;
+  border-radius: 0.2rem;
+}
+
+.column-header{
+  
+  height: 50px;
+  padding: 0.1rem;
+  width: 90vw;
+}
+.column-button {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  padding: 0.1rem;
+  background-color: #5cb85c;
+  margin-bottom: 20px;
+}
+
+.button-container button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+}
+
+img{
+  cursor:pointer;
+}
+.button-container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 70%; /* Adjust the top value as needed */
+  left:5%; /* Adjust the left value to center horizontally */
+  transform: translateX(-50%); /* Center the container horizontally */
+}

@@ -1,0 +1,107 @@
+body{
+ 
+  margin-top:20px;
+}
+.content{
+  background-image: url("../../../../assets/kidsbackground.jpg");
+  background-size: fill;
+  height:85vh;
+  background-repeat: no-repeat;
+}
+.card-box {
+  
+  border-radius: 3px;
+ 
+}
+
+.social-links li a {
+  border-radius: 50%;
+  color: rgba(121, 121, 121, .8);
+  display: inline-block;
+  height: 30px;
+  line-height: 27px;
+  border: 2px solid rgba(121, 121, 121, .5);
+  text-align: center;
+  width: 30px
+}
+
+.social-links li a:hover {
+  color: #797979;
+  border: 2px solid #797979
+}
+.thumb-lg {
+  height: 140px;
+  width: 140px;
+}
+.img-thumbnail {
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  max-width: 100%;
+  height: auto;
+}
+.text-pink {
+  color: #ff679b!important;
+}
+.btn-rounded {
+  border-radius: 2em;
+}
+.text-muted {
+  color: #98a6ad!important;
+}
+h4 {
+  line-height: 22px;
+  font-size: 18px;
+}
+#svg-button {
+  cursor: pointer;
+}
+
+#svg-button1 {
+  cursor: pointer;
+}
+
+.button-container {
+  position: absolute;
+  right: 95%;
+  top: 80%;
+  transform: translate(50%, -50%);
+}
+
+.button-container button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* your-component.component.css */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  padding: 20px;
+  
+  
+  background: transparent;
+  
+}
+
+@import "~sweetalert2/dist/sweetalert2.min.css";
+
+.swal2-icon.swal2-success {
+  background-color: white; /* Set background color to white */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+.swal2-icon.swal2-error {
+  background-color: white; /* Set background color to white */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+

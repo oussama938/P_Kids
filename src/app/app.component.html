@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  
+<!-- 
+  <button id="startButton">Commencer l'écoute</button>
+  <p id="output"></p>
+
+  <button (click)="listenForSpeech()">Listen for Speech</button> -->
+
+ 
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+  <img class="rounded-circle" alt="avatar1" style="width: 70px; margin: 10px;" src="../assets/logo.png" />
+  
+  <h1 style="color: white; font-style: italic;">Prono Kids</h1>
+  
+
+  <div class="collapse navbar-collapse d-flex justify-content-center" style="margin-left:200px ;" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/acceuil">
+          <img src="../assets/home.png" alt="" style="width: 30px;height:30px"/>
+          <br>
+          Acceuil
+          </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/bienvenue">
+          <img src="../assets/bienvenue.png" alt="" style="width: 30px;height:30px"/>
+            <br>
+          Bienvenue
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/listedesunite">
+          <img src="../assets/listedesunites.png" alt="" style="width: 30px;height:30px"/>
+            <br>
+          Listes des unités
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/exercices">
+          <img src="../assets/exercice.png" alt="" style="width: 30px;height:30px"/>
+          <br>
+          Liste des exercices
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/by">
+          <img src="../assets/goodbye.png" alt="" style="width: 30px;height:30px"/>
+            <br>
+          Au revoir
+        </a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+
+
+  <router-outlet></router-outlet>
+
+
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+  integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+</html>

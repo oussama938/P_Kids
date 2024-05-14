@@ -1,0 +1,79 @@
+<body>
+  
+    <div class="exercice">
+      <figure class="text-center">
+        <blockquote class="blockquote d-flex" style="padding-left: 20%;">
+          <img src="../../../../assets/bird.png" width="200px" height="200px"  alt="Button Image" (click)="onClickBird()">
+          <h1
+          style="margin-top:5%;font-family: Comic Sans MS;;">Je classifie les mots dans le tableau</h1>
+        </blockquote>
+        <h2 class="blockquote-footer">
+          Cliquer sur le mot pour écouter la pronunciation !
+        </h2>
+        <h2 class="blockquote-footer">
+          Remplir le tableau puis valider 
+        </h2>
+      </figure>
+      <br>
+      <div class="containe">
+        <div class="column-header">
+          <div class="row">
+            <button class="column-button col-md-4" style="margin-left: 15rem;" (click)="validateResponse()">
+              <h4 style="font-family:Arimo, sans-serif;" >Valider</h4>
+            </button>
+            <div class="col-md-1"></div>
+            <button style="background-color:red" class="column-button col-md-4">
+              <h4 style="font-family:Arimo, sans-serif;" (click)="resetTable()">Vider le tableau</h4>
+            </button>
+          </div>
+        </div>
+        <br>
+        <!-- List of words -->
+        <div class="top-content ml-5 align-items-center justify-content-center sticky-top"
+          (drop)="drop($event, 'wordList')" (dragover)="allowDrop($event)">
+          <div class="example-box draggable" *ngFor="let word of tableWords" draggable="true"
+            (dragstart)="dragStart($event)" (click)="this.playSpeech(word)" style="font-size: 20px;font-weight: bold;cursor: grab;">{{word}}</div>
+        </div>
+        <br>
+        
+        <!-- Table of words -->
+        <div class="table-container mt-2" (dragover)="allowDrop($event)">
+          <div class="table-wrapper">
+            <table class="table table-bordered table-light"></table>
+            <table class="table table-bordered table-light ">
+              <thead>
+                <tr>
+                  <th style="font-size: 30px;" scope="col">i</th>
+                  <th style="font-size: 30px;" scope="col">u</th>
+                  <th style="font-size: 30px;" scope="col">on</th>
+                  <th style="font-size: 30px;" scope="col">an</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="first-row">
+                  <td #iCell id="i-cell" style="font-size: 30px;" class="droppable" (drop)="drop($event, 'i-cell')"
+                    (click)="preventDrag($event)"></td>
+                  <td #uCell id="u-cell" style="font-size: 30px;" class="droppable" (drop)="drop($event, 'u-cell')"
+                    (click)="preventDrag($event)"></td>
+                  <td #onCell id="on-cell" style="font-size: 30px;" class="droppable" (drop)="drop($event, 'on-cell')"
+                    (click)="preventDrag($event)"></td>
+                  <td #anCell id="an-cell" style="font-size: 30px;" class="droppable" (drop)="drop($event, 'an-cell')"
+                    (click)="preventDrag($event)"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+        
+      </div>
+      <div class="button-container">
+        <a type="button" routerLink='/exercices'>
+    
+          <img src="../../../assets/arrowLeft.png" alt="" style="width: 200px;">
+        </a>
+      </div>
+    </div>
+    
+  </body>
+

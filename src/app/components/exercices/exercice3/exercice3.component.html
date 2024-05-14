@@ -1,0 +1,60 @@
+<body>
+
+
+    <div class="container">
+        <!-- <div class="progress">
+            <div class="progress-bar" role="progressbar" [style.width.%]="progress" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100">{{progress}}%</div>
+        </div>
+     -->
+     <div class="bs-calltoaction bs-calltoaction-success ">
+        <div class="row">
+            <img src="../../../../assets/bird.png" width="200px" height="200px"  alt="Button Image" (click)="onClickBird()">
+
+            <div class="col-md-9 cta-contents">
+                
+                <h1 class="cta-title">Je lis et je gagne des étoiles</h1>
+                <!-- <div class="cta-desc">
+                    <p>Score :</p>
+                    <p>Counter  00:00</p>
+                </div> -->
+               
+            </div>
+            <div class="col-md-3 cta-button">
+                <!-- starttimer() -->
+                <button class="btn btn-lg btn-block btn-success"  (click)="startTimer()" [disabled]="this.isButtonDisabled">{{buttonValue}}</button>
+            </div>
+         </div>
+    </div>
+    <div class="row d-flex">
+        <div class="col-md-8">
+          <h1 style="font-family:Arial, Helvetica, sans-serif ; ">Score : {{score}}</h1>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end align-items-end">
+          <img src="../../../../assets/counter.png" style="width:80px;height:80px" alt="">
+          &nbsp; &nbsp; &nbsp;
+          <h1> {{timerValue}}</h1>
+        </div>
+      </div>
+      
+        <div class="containerSyllab"  style="padding:9px">
+            <div class="col-xs-6" style="width: 800px; margin-left: 20%;">
+                <div class="syllables-container">
+                    <div *ngFor="let syllabGroup of syllabesGroups" class="syllab-group">
+                        <div *ngFor="let syll of syllabGroup;let i = index" class="syllab" [id]="syll" [ngStyle]="{'background-color': this.listSyllabes[currentWordIndex] === syll ? 'red' : 'initial'}">
+                            <a  style="width: 100px; height: 100px;"(click)="listenForSpeech1()" >{{ syll }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div class="button-container">
+        <a type="button" routerLink='/exercices'>
+    
+          <img src="../../../assets/arrowLeft.png" alt="" style="width: 200px;">
+        </a>
+      </div>
+
+</body>

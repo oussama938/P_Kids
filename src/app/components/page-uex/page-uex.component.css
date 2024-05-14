@@ -1,0 +1,76 @@
+body{
+    background-image: url(../../../assets/bac-3.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+h1{
+    font-size: 1em;
+    position: absolute;
+    top: 570px;
+    left:100px ;
+    right:1100px ;
+    bottom:20px ;
+    color: white;
+    font-style: italic;
+    transform: translate(-50%, -50%);
+    background-color:purple;
+    padding: 10px;
+    width: 100px;
+    height: 20px;
+}
+h2{
+  font-size: 1em;
+    position: absolute;
+    top: 570px;
+    left:100px ;
+    right:1100px ;
+    bottom:20px ;
+    color: white;
+    font-style: italic;
+    transform: translate(-50%, -50%);
+    background-color:purple;
+    padding: 10px;
+    width: 100px;
+    height: 20px;
+    }
+h3{
+    font-size:3em;
+    position: absolute;
+    top: 100px;
+    left:1100px ;
+    right:100px ;
+    bottom:20px ;
+    color: white;
+    font-style: italic;
+    transform: translate(-50%, -50%);
+    background-color:brown;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+h4{
+    font-size: 3em;
+    position: absolute;
+    top: 350px;
+    left:1100px ;
+    right:100px ;
+    bottom:20px ;
+    color: white;
+    font-style: italic;
+    transform: translate(-50%, -50%);
+    background-color:deeppink;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+    
