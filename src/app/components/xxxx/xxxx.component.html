@@ -1,0 +1,67 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<nav class="navbar navbar-expand-lg">
+    <ul class="navbar-nav">
+        <li class="nav-item" [class.active]="lastClickedIndex === 0">
+          <a class="nav-link" style="cursor: pointer;" (click)="onItemClick(0)">Mots Unité 1</a>
+        </li>
+        <li class="nav-item" [class.active]="lastClickedIndex === 1">
+          <a class="nav-link" style="cursor: pointer;" (click)="onItemClick(1)">Syllabes Unité 1</a>
+        </li>
+        <li class="nav-item" [class.active]="lastClickedIndex === 2">
+          <a class="nav-link" style="cursor: pointer;" (click)="onItemClick(2)">Mots Unité 2</a>
+        </li>
+        <li class="nav-item" [class.active]="lastClickedIndex === 3">
+          <a class="nav-link" style="cursor: pointer;" (click)="onItemClick(3)">Syllabes Unité 2</a>
+        </li>
+        <li class="nav-item" [class.active]="lastClickedIndex === 4">
+          <a class="nav-link" style="cursor: pointer;" (click)="onItemClick(4)">Exercice 3</a>
+        </li>
+      </ul>
+      
+
+
+</nav>
+<div class="container">
+    <br>
+
+    <ul class="social-links list-inline">
+        <li class="list-inline-item">
+            <h2 style="color: red;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Mot actuel :</h2>   
+        </li>
+        <li class="list-inline-item">
+            <h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{this.displayingWord}} </h2> 
+        </li>
+
+        <li id="svg-button"  class="list-inline-item" (click)="listenForSpeech()" style="cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-mic-fill" style="color: red;" viewBox="0 0 16 16">
+                <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0z"></path>
+                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"></path>
+            </svg>
+        </li>
+        
+    </ul>
+
+    <ul class="social-links list-inline">
+        <li class="list-inline-item">
+            <h2 style="color: red;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">OUTPUT :</h2>   
+        </li>
+        <li class="list-inline-item">
+            <h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{transcriptedWord}} </h2> 
+        </li>
+        <li class="list-inline-item">
+            <button class="button" (click)="add()">Ajouter</button>
+        </li>
+        <li class="list-inline-item">
+            <button class="button" (click)="passer()">Passer</button>
+        </li>
+
+
+        
+    </ul>
+
+</div>

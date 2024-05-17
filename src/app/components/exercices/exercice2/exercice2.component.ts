@@ -12,6 +12,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./exercice2.component.css']
 })
 export class Exercice2Component implements OnInit{
+
+  
+  couples = [ ["ma", "lia"] , ["ma", "lin"] , ["li", "lia"] , ["ala", "la"]]
+  spells=[["malia","maléa","Malia","Malia."],["malin","Malin."],["Lilia.","lilia"],["à la","ah là là"]]
   
 
   displayedCoupleIndex = 0;
@@ -90,8 +94,6 @@ export class Exercice2Component implements OnInit{
       });
   }
 
-  couples = [ ["ma", "lia"] , ["ma", "lin"] , ["li", "lia"] , ["ala", "la"]]
-  spells=[["malia","maléa","Malia","Malia."],["malin","Malin."],["Lilia.","lilia"],["à la","ah là là"]]
   
 
   

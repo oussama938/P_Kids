@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data-service.service';
+import { ScriptLoaderService } from 'src/app/services/script-loader.service';
+import { SpellingService } from 'src/app/services/spelling.service';
 import { TextToSpeechSynthService } from 'src/app/services/text-to-speech-synth.service';
 import { VoiceService } from 'src/app/services/voice.service';
 import Swal from 'sweetalert2';
@@ -11,12 +13,30 @@ import Swal from 'sweetalert2';
   styleUrls: ['./syllabes.component.css']
 })
 export class SyllabesComponent {
+  prmJson=0
   syllabesUnite:any;
   idPageUnit = 0;
   wordGroups: string[][] = [];
+  spells:any[]=[]
+
   constructor(private route:ActivatedRoute,
-              private dataService:DataService,private stt:TextToSpeechSynthService,private voiceService:VoiceService
+              private dataService:DataService,private stt:TextToSpeechSynthService,private voiceService:VoiceService,
+              private spl:SpellingService,private scriptLoader:ScriptLoaderService
   ){
+    this.scriptLoader.loadScript('../assets/script/script.js').then(() => {
+      // Script has loaded, you can use functions defined in script.js here
+      this.askForAuthorization();
+
+      
+      
+
+      
+      
+    }).catch((error) => {
+      // Handle error if script fails to load
+      console.error('Script loading failed:', error);
+    });
+
 
   }
   ngOnInit(): void {
@@ -25,6 +45,18 @@ export class SyllabesComponent {
         this.syllabesUnite=this.dataService.getUnitById(prm['id']).syllabes
         this.idPageUnit = prm['id']
         console.log(this.syllabesUnite)
+        this.prmJson=parseInt(prm['id'])
+        console.log('syllUnite'+this.prmJson+'.json');
+        
+        this.spl.loadData('syllUnite'+this.prmJson+'.json').subscribe(
+          (data)=>{
+            for(let i=0;i<data.length;i++){
+              this.spells.push(data[i].variations)
+            }          
+          }
+        )
+        console.log(this.spells);
+
       }
     )
 
@@ -40,7 +72,6 @@ export class SyllabesComponent {
       }
     }
 
-    console.log(22)
   }
 
   speak(word:string){
@@ -82,16 +113,32 @@ export class SyllabesComponent {
       .catch((error: any) => console.error("Error asking for authorization:", error));
   }
 
-  listenForSpeech( i:number,j:number ) {
+  listenForSpeech( i :number ,j:number) {
+    let index=0
+    console.log(i+'|'+j);
+
+    index=(i)*6+ j;
+
+    console.log(index);
     
-    (window as any).listenForSpeech(3000) // Listen for 5 seconds
+    //calcuer index
+
+
+    
+    (window as any).listenForSpeech(2000) // Listen for 5 seconds
       .then((transcript: any) => {
         console.log("Recognized speech:", transcript)
 
         let answer=false;
-        if(this.wordGroups[i][j] === transcript){
-          answer=true
+
+        for(let el of this.spells[index]){
+          console.log(el);
+          
+          if(el===transcript){
+            answer=true
+          }
         }
+
         if(answer){
           this.playSuccessSound()
         }

@@ -13,6 +13,7 @@ import { Exercice3Component } from './components/exercices/exercice3/exercice3.c
 import { MotsComponent } from './components/unite/mots/mots.component';
 import { SyllabesComponent } from './components/unite/syllabes/syllabes.component';
 import { AurevoirComponent } from './components/aurevoir/aurevoir.component';
+import { XXXXComponent } from './components/xxxx/xxxx.component';
 
 const routes: Routes = [
   {path:'acceuil', component: AcceuilComponent },
@@ -26,7 +27,9 @@ const routes: Routes = [
   {path:'exercice1',component:Exercice1Component},
   {path:'exercice2',component:Exercice2Component},
   {path:'exercice3',component:Exercice3Component},
-  {path:'by',component:AurevoirComponent}
+  {path:'by',component:AurevoirComponent},
+  {path:'train',component:XXXXComponent}
+
   ];
 
 @NgModule({

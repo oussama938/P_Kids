@@ -3,6 +3,7 @@ import { ActivatedRoute, Route } from '@angular/router';
 import { Unite } from 'src/app/models/unite';
 import { DataService } from 'src/app/services/data-service.service';
 import { ScriptLoaderService } from 'src/app/services/script-loader.service';
+import { SpellingService } from 'src/app/services/spelling.service';
 import { TextToSpeechSynthService } from 'src/app/services/text-to-speech-synth.service';
 import { VoiceService } from 'src/app/services/voice.service';
 import Swal from 'sweetalert2';
@@ -14,7 +15,8 @@ import Swal from 'sweetalert2';
 })
 export class MotsComponent implements OnInit{
 
-  spells=[['fier'], ['arbre'], ['jardin'], ['lina','lena','Lina'], ['et les','elyssa','et les'], ['papa'], ['maman'], ['lapin'], ['la lune'], ['la table','la'], ['le'], ['elle','elles'], ['lit','les','lis'], ['Merci.','merci'], ["l'oncle émile","l'oncle"], ['oiseau'], ['Amira','Amira.'], ['mamie','Mamie','Mamie.'], ['mourad','Mourad'], ['mère'], ['amine mon frère','amine'], ['masseur','ma soeur'], ['tonton'], ['il'], ['papy','papi'], ['fleur'], ['soleil','Soleil.'], ['Chaise.','chaise'], ['chat'], ['étoile','Étoile.']]
+  // spells:any[]=[['fier'], ['arbre'], ['jardin'], ['lina','lena','Lina'], ['et les','elyssa','et les'], ['papa'], ['maman'], ['lapin'], ['la lune'], ['la table','la'], ['le'], ['elle','elles'], ['lit','les','lis'], ['Merci.','merci'], ["l'oncle émile","l'oncle"], ['oiseau'], ['Amira','Amira.'], ['mamie','Mamie','Mamie.'], ['mourad','Mourad'], ['mère'], ['amine mon frère','amine'], ['masseur','ma soeur'], ['tonton'], ['il'], ['papy','papi'], ['fleur'], ['soleil','Soleil.'], ['Chaise.','chaise'], ['chat'], ['étoile','Étoile.']]
+  spells:any[]=[]
   motsUnite:any;
   displayedMots : any;
   Paginator : any
@@ -29,11 +31,13 @@ export class MotsComponent implements OnInit{
   constructor(private route:ActivatedRoute,
               private dataService:DataService,private stt:TextToSpeechSynthService,
               private voiceService : VoiceService,
-              private scriptLoader:ScriptLoaderService
+              private scriptLoader:ScriptLoaderService,private spl:SpellingService
   ){
         this.scriptLoader.loadScript('../assets/script/script.js').then(() => {
       // Script has loaded, you can use functions defined in script.js here
       this.askForAuthorization();
+      
+      
     }).catch((error) => {
       // Handle error if script fails to load
       console.error('Script loading failed:', error);
@@ -50,7 +54,17 @@ export class MotsComponent implements OnInit{
         console.log("displayed mot",this.displayedMots);
 
         this.idPageUnit = prm['id']
-        console.log(this.motsUnite)
+
+        console.log('motsUnite'+this.idPageUnit+'.json');
+        
+        this.spl.loadData('motsUnite'+this.idPageUnit+'.json').subscribe(
+          (data)=>{
+            for(let i=0;i<data.length;i++){
+              this.spells.push(data[i].variations)
+            }          
+          }
+        )
+        console.log(this.spells)
         
       }
     )
@@ -112,7 +126,7 @@ export class MotsComponent implements OnInit{
   listenForSpeech( index :number ) {
     console.log(index);
     
-    (window as any).listenForSpeech(3000) // Listen for 5 seconds
+    (window as any).listenForSpeech(2500) // Listen for 5 seconds
       .then((transcript: any) => {
         console.log("Recognized speech:", transcript)
 
@@ -139,6 +153,7 @@ export class MotsComponent implements OnInit{
 
       });
   }
+  
   
   
 

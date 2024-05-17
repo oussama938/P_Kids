@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ScriptLoaderService } from 'src/app/services/script-loader.service';
+import { SpellingService } from 'src/app/services/spelling.service';
 import { TextToSpeechSynthService } from 'src/app/services/text-to-speech-synth.service';
 import { VoiceService } from 'src/app/services/voice.service';
 import Swal from 'sweetalert2';
@@ -18,7 +19,8 @@ export class Exercice3Component {
   timer: number = 90;
   interval: any;
   listSyllabes: any =['a', 'ma', 'am', 'al', 'mi', 'li', 'mu', 'imi', 'lom', 'lal', 'lil', 'lim', 'mil', 'lam', 'amo', 'tu', 'ili', 'ima', 'lima', 'alal', 'mami', 'mimi', 'ali', 'la', 'mo', 'il', 'ami', 'mal', 'amal', 'ala']
-  spellSyllabes=[['à' ,'Ah.','ah' ],['ma'],['am','Âme ?'],['al','All.','Al.','hal'],['mis','mais','mi'],['lis','lit','les'],['me','mais','menu','Menu'],['imi','emy','Imi.','et mais'],["l'homme","l'Homme","L'homme"],['L"al','la','lol'],['l"aile','l"ail','l"ile'],['Lim','L"aime.','l"hymne','lim'],['mais','1000','1000.'],["l'âme","L'âme ?"],["Hameau.","Hameaux","hameau"],["Tu."],["ily","il lit"],["il m'a","climat","emma"],["lima"],["alan","halal"],["Mommy.","Mamie.","mamie"],["mimi"],["ali"],["la","là"],["mot"],["il"],["ami","amis"],["mâle","mal"],["à mal","amal"],["À la.","à la"]]
+  // spellSyllabes=[['à' ,'Ah.','ah' ],['ma'],['am','Âme ?'],['al','All.','Al.','hal'],['mis','mais','mi'],['lis','lit','les'],['me','mais','menu','Menu'],['imi','emy','Imi.','et mais'],["l'homme","l'Homme","L'homme"],['L"al','la','lol'],['l"aile','l"ail','l"ile'],['Lim','L"aime.','l"hymne','lim'],['mais','1000','1000.'],["l'âme","L'âme ?"],["Hameau.","Hameaux","hameau"],["Tu."],["ily","il lit"],["il m'a","climat","emma"],["lima"],["alan","halal"],["Mommy.","Mamie.","mamie"],["mimi"],["ali"],["la","là"],["mot"],["il"],["ami","amis"],["mâle","mal"],["à mal","amal"],["À la.","à la"]]
+  spellSyllabes:any[]=[]
   syllabesGroups: string[][] = [];
   buttonValue:string = "Commencer"
   score : number = 0;
@@ -33,11 +35,23 @@ export class Exercice3Component {
   constructor(private voiceService : VoiceService,
               private scriptLoader:ScriptLoaderService,
               private stt :TextToSpeechSynthService ,
-              private router:Router
+              private router:Router,
+              private spl:SpellingService
   ) {
     this.scriptLoader.loadScript('../assets/script/script.js').then(() => {
       // Script has loaded, you can use functions defined in script.js here
       this.askForAuthorization();
+      this.spl.loadData('ex3.json').subscribe(
+        (data)=>{
+          for(let i=0;i<data.length;i++){
+            this.spellSyllabes.push(data[i].variations)
+          }
+          console.log(this.spellSyllabes);
+          
+        }
+      )
+
+
     }).catch((error) => {
       // Handle error if script fails to load
       console.error('Script loading failed:', error);
@@ -86,7 +100,7 @@ export class Exercice3Component {
   
   
   if (this.evaluationInterval === 1) {
-    this.listenForSpeech();
+    this.listenForSpeech1();
   }
   
 
@@ -213,9 +227,12 @@ export class Exercice3Component {
     this.voiceService.playErrorSound();
   }  
 
-  listenForSpeech(  ) {
-    (window as any).listenForSpeech(2000) // Listen for 5 seconds
+  listenForSpeech1(  ) {
+    (window as any).listenForSpeech(1500) // Listen for 5 seconds
       .then((transcript: any) => {
+        setTimeout(()=>{
+
+        },1000)
         console.log("Recognized speech:", transcript)
         this.transcriptWord = transcript
         // console.log(this.transcriptWord);
@@ -225,16 +242,16 @@ export class Exercice3Component {
       });
   }
 
-  listenForSpeech1(  ) {
-    (window as any).listenForSpeech(2000) // Listen for 5 seconds
-      .then((transcript: any) => {
-        console.log('('+transcript+')')
-        // console.log(this.transcriptWord);
-      })
-      .catch((error: any) => {
+  // listenForSpeech1(  ) {
+  //   (window as any).listenForSpeech(2000) // Listen for 5 seconds
+  //     .then((transcript: any) => {
+  //       console.log('('+transcript+')')
+  //       // console.log(this.transcriptWord);
+  //     })
+  //     .catch((error: any) => {
 
-      });
-  }
+  //     });
+  // }
 
   askForAuthorization() {
     // Call the function from the loaded script to ask for microphone authorization

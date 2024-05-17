@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 // import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
@@ -21,6 +23,7 @@ import { DragAndDropModule } from 'angular-draggable-droppable';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PopupComponent } from './components/popup/popup.component';
 import { AurevoirComponent } from './components/aurevoir/aurevoir.component';
+import { XXXXComponent } from './components/xxxx/xxxx.component';
 
 
 @NgModule({
@@ -39,12 +42,13 @@ import { AurevoirComponent } from './components/aurevoir/aurevoir.component';
     SyllabesComponent,
     PopupComponent,
     AurevoirComponent,
+    XXXXComponent,
     
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,DragDropModule
+    AppRoutingModule,DragDropModule,HttpClientModule
     // DragDropModule
 
     
